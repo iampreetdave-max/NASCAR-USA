@@ -1,0 +1,180 @@
+{
+  "description": "Required features for NASCAR prediction model",
+  "total_features": 17,
+  "feature_order": [
+    "form_last_3",
+    "form_last_5",
+    "form_last_10",
+    "track_avg_finish_position",
+    "track_avg_speed",
+    "track_races_history",
+    "team_momentum",
+    "manu_track_type_avg",
+    "win_rate_track_type",
+    "prior_avg_finish_position",
+    "prior_avg_speed",
+    "start_position",
+    "driver_full_name_encoded",
+    "team_encoded",
+    "track_name_encoded",
+    "track_type_encoded",
+    "manufacturer_encoded"
+  ],
+  "features": {
+    "form_last_3": {
+      "type": "numeric",
+      "example_value": 15.9345,
+      "median_value": 15.9345,
+      "description": "Numeric feature (fill missing with 15.9345)"
+    },
+    "form_last_5": {
+      "type": "numeric",
+      "example_value": 15.9014,
+      "median_value": 15.9014,
+      "description": "Numeric feature (fill missing with 15.9014)"
+    },
+    "form_last_10": {
+      "type": "numeric",
+      "example_value": 15.8849,
+      "median_value": 15.8849,
+      "description": "Numeric feature (fill missing with 15.8849)"
+    },
+    "track_avg_finish_position": {
+      "type": "numeric",
+      "example_value": 20.0,
+      "median_value": 20.0,
+      "description": "Numeric feature (fill missing with 20.0)"
+    },
+    "track_avg_speed": {
+      "type": "numeric",
+      "example_value": 117.4827,
+      "median_value": 117.4827,
+      "description": "Numeric feature (fill missing with 117.4827)"
+    },
+    "track_races_history": {
+      "type": "numeric",
+      "example_value": 1.0,
+      "median_value": 1.0,
+      "description": "Numeric feature (fill missing with 1.0)"
+    },
+    "team_momentum": {
+      "type": "numeric",
+      "example_value": 15.4,
+      "median_value": 15.4,
+      "description": "Numeric feature (fill missing with 15.4)"
+    },
+    "manu_track_type_avg": {
+      "type": "numeric",
+      "example_value": 15.9,
+      "median_value": 15.9,
+      "description": "Numeric feature (fill missing with 15.9)"
+    },
+    "win_rate_track_type": {
+      "type": "numeric",
+      "example_value": 0.0,
+      "median_value": 0.0,
+      "description": "Numeric feature (fill missing with 0.0)"
+    },
+    "prior_avg_finish_position": {
+      "type": "numeric",
+      "example_value": 15.806,
+      "median_value": 15.806,
+      "description": "Numeric feature (fill missing with 15.806)"
+    },
+    "prior_avg_speed": {
+      "type": "numeric",
+      "example_value": 111.4368,
+      "median_value": 111.4368,
+      "description": "Numeric feature (fill missing with 111.4368)"
+    },
+    "start_position": {
+      "type": "numeric",
+      "example_value": 17.0,
+      "median_value": 17.0,
+      "description": "Numeric feature (fill missing with 17.0)"
+    },
+    "driver_full_name_encoded": {
+      "type": "categorical_encoded",
+      "original_column": "driver_full_name",
+      "example_value": 0,
+      "description": "LabelEncoded value of driver_full_name",
+      "sample_classes": [
+        "AJ Allmendinger",
+        "Alex Bowman",
+        "Andy Lally",
+        "Anthony Alfredo",
+        "Aric Almirola"
+      ]
+    },
+    "team_encoded": {
+      "type": "categorical_encoded",
+      "original_column": "team",
+      "example_value": 0,
+      "description": "LabelEncoded value of team",
+      "sample_classes": [
+        "23XI Racing",
+        "BJ McLeod Racing",
+        "Beard Motorsports",
+        "Chip Ganassi Racing",
+        "Front Row Motorsports"
+      ]
+    },
+    "track_name_encoded": {
+      "type": "categorical_encoded",
+      "original_column": "track_name",
+      "example_value": 0,
+      "description": "LabelEncoded value of track_name",
+      "sample_classes": [
+        "Auto Club Speedway",
+        "Bristol Motor Speedway",
+        "Bristol Motor Speedway Dirt",
+        "Charlotte Motor Speedway",
+        "Charlotte Motor Speedway Road Course"
+      ]
+    },
+    "track_type_encoded": {
+      "type": "categorical_encoded",
+      "original_column": "track_type",
+      "example_value": 0,
+      "description": "LabelEncoded value of track_type",
+      "sample_classes": [
+        "Road Course",
+        "Short Track",
+        "Superspeedway"
+      ]
+    },
+    "manufacturer_encoded": {
+      "type": "categorical_encoded",
+      "original_column": "manufacturer",
+      "example_value": 0,
+      "description": "LabelEncoded value of manufacturer",
+      "sample_classes": [
+        "Chevrolet",
+        "Ford",
+        "Toyota",
+        "nan"
+      ]
+    }
+  },
+  "feature_weights_applied": {
+    "note": "These weights are ALREADY APPLIED during training. Apply same weights to prediction data.",
+    "weights": {
+      "start_position": 3.0,
+      "prior_avg_finish_position": 1.5,
+      "prior_avg_speed": 1.2,
+      "track_avg_finish_position": 1.3,
+      "form_last_3": 1.4,
+      "form_last_5": 1.2
+    }
+  },
+  "categorical_columns": {
+    "columns": [
+      "driver_full_name",
+      "team",
+      "track_name",
+      "track_type",
+      "manufacturer"
+    ],
+    "note": "Use the saved encoders.pkl to transform these columns"
+  }
+}
