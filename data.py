@@ -11,6 +11,7 @@ ENHANCEMENTS:
 - UPDATED: Extracts ALL fields from results.json endpoint (including ALL points fields)
 """
 
+import os
 import requests
 import pandas as pd
 import numpy as np
@@ -21,7 +22,7 @@ import json
 
 # NOTE: If you get 403 errors, your API key needs NASCAR subscription activated
 # Contact SportsRadar support: (610) 233-1333 or support@sportradar.com
-API_KEY = "f3iZXDBuhDIoXhYmNtcucblW7xa32KGTtn9aGXZx"
+API_KEY = os.environ.get("SPORTRADAR_API_KEY", "")
 SEASONS = [2024]  # Change this to any years you want
 BASE_URL = "https://api.sportradar.us/nascar-ot3"
 SERIES = "mc"
