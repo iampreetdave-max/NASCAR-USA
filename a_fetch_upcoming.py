@@ -11,6 +11,7 @@ OUTPUT:
     upcoming_race_features.csv - Ready for model prediction
 """
 
+import os
 import requests
 import pandas as pd
 import numpy as np
@@ -24,18 +25,18 @@ import json
 # =============================================================================
 
 # SportsRadar API
-API_KEY = "mr6vgIYkBwabuE5n210HD6zFxqn8VMVVIuEMGw3n"
+API_KEY = os.environ.get("SPORTRADAR_API_KEY", "")
 BASE_URL = "https://api.sportradar.com/nascar-ot3"
 SERIES = "mc"  # Monster Cup
 SEASON = 2026
 
 # Database Configuration (fallback for historical data)
 DB_CONFIG = {
-    'host': 'winbets-predictions.postgres.database.azure.com',
+    'host': os.environ.get("AZURE_PG_HOST", ""),
     'port': 5432,
     'database': 'postgres',
-    'user': 'winbets',
-    'password': 'Constantinople@1900',
+    'user': os.environ.get("AZURE_PG_USER", ""),
+    'password': os.environ.get("AZURE_PG_PASSWORD", ""),
     'sslmode': 'require'
 }
 DB_TABLE = 'nascar_usa_data'
